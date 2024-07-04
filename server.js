@@ -10,7 +10,7 @@ import ApiResponse from "./utils/ApiResponse.js";
 const app = express();
 let PORT = process.env.PORT || 3000;
 
-
+app.use(cors());
 app.use(express.json({ limit: "50mb", extended: true }));
 
 mongoose
