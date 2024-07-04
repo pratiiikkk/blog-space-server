@@ -28,8 +28,8 @@ mongoose
 
 //setting up aws s3
 const s3 = new aws.S3({
-  accessKeyId: process.env.AWS_ACCESS_KEY,
-  secretAccessKey: process.env.AWS_SECRET_KEY,
+  accessKeyId: process.env.AWS_ACCESS_KEY_NAME,
+  secretAccessKey: process.env.AWS_SECRET_KEY_NAME,
   region: process.env.AWS_REGION,
 });
 
