@@ -44,6 +44,11 @@ const generateUploadUrl = async () => {
   });
 };
 
+//simple get request 
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+
 app.get("/api/upload-url", async (req, res) => {
   const url = await generateUploadUrl();
   if (url) {
