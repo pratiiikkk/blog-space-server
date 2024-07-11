@@ -9,8 +9,11 @@ import cors from "cors";
 import ApiResponse from "./utils/ApiResponse.js";
 const app = express();
 let PORT = process.env.PORT || 3000;
+var corsOptions = {
+  origin: 'https://pats-blog-space.netlify.app',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
-app.use(cors());
 app.use(express.json({ limit: "50mb", extended: true }));
 
 mongoose
@@ -58,7 +61,7 @@ app.get("/api/upload-url", async (req, res) => {
     ApiResponse(res, 500, "Error occurred while generating upload URL");
   }
 })
-app.use("/api", UserRoutes);
-app.use("/api",BlogRoute)
+app.use("/api",cors(corsOptions), UserRoutes);
+app.use("/api",cors(corsOptions),BlogRoute)
 
 
