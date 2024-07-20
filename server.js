@@ -52,7 +52,7 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-app.get("/api/upload-url", async (req, res) => {
+app.get("/api/upload-url", cors(corsOptions),async (req, res) => {
   const url = await generateUploadUrl();
   if (url) {
     res.status(200).json({upload_Url: url});
